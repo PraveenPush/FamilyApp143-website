@@ -5,78 +5,168 @@
   <title>Family App - Download</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --bg: #0b1320;
+      --card: #151f32;
+      --accent: #00c853;
+      --accent-soft: rgba(0, 200, 83, 0.12);
+      --text-main: #f5f5f5;
+      --text-soft: #ccd2e0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
-      font-family: Arial, sans-serif;
-      background: #0b1320;
-      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: radial-gradient(circle at top, #182644 0, #050814 55%);
+      color: var(--text-main);
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+      padding: 1.5rem;
     }
     .card {
-      background: #151b2d;
-      padding: 24px 32px;
-      border-radius: 16px;
-      max-width: 450px;
+      background: linear-gradient(145deg, #151f32, #0f1724);
+      border-radius: 24px;
+      padding: 2rem 2.5rem;
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
+      max-width: 520px;
+      width: 100%;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      background: conic-gradient(
+        from 210deg,
+        #00c853,
+        #00b0ff,
+        #7c4dff,
+        #00c853
+      );
+      margin: 0 auto 1.25rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 0.03em;
+      box-shadow: 0 10px 30px rgba(0, 200, 83, 0.45);
     }
     h1 {
-      margin-top: 0;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
     }
-    p {
-      line-height: 1.5;
+    .subtitle {
       font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 1.5rem;
+    }
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-soft);
+    }
+    .badge--latest {
+      border-color: var(--accent-soft);
+      background: var(--accent-soft);
+      color: var(--accent);
     }
     .btn {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.9rem 1.6rem;
       border-radius: 999px;
-      border: none;
-      background: #3b82f6;
-      color: #fff;
-      font-weight: 600;
+      background: var(--accent);
+      color: #04110a;
       text-decoration: none;
-      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 1.1rem;
+      box-shadow:
+        0 12px 30px rgba(0, 200, 83, 0.4),
+        0 0 0 1px rgba(0, 0, 0, 0.25);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
     }
-    .tag {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid #22c55e;
-      font-size: 0.75rem;
-      color: #bbf7d0;
+    .btn span.icon {
+      font-size: 1.1rem;
     }
-    .note {
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 16px 40px rgba(0, 200, 83, 0.5),
+        0 0 0 1px rgba(0, 0, 0, 0.25);
+      background: #00e060;
+    }
+    .btn:active {
+      transform: translateY(0);
+      box-shadow:
+        0 8px 18px rgba(0, 200, 83, 0.35),
+        0 0 0 1px rgba(0, 0, 0, 0.25);
+    }
+    .hint {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+      margin-bottom: 1.1rem;
+    }
+    .footer {
       font-size: 0.75rem;
-      color: #9ca3af;
-      margin-top: 12px;
+      color: #7f8cab;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <main class="card">
+    <div class="logo">F</div>
     <h1>Family App</h1>
-    <p>Download the latest Android APK for the Family App.</p>
+    <p class="subtitle">Download the latest Android build of your Family App.</p>
 
-    <!-- This link always points to the latest release APK in your private repo -->
-    <a class="btn"
-       href="https://github.com/PraveenPush/FamilyApp143/releases/latest/download/app-debug.apk">
-      Download Latest APK
+    <div class="badge-row">
+      <span class="badge badge--latest">Latest build</span>
+      <span class="badge">Android APK</span>
+      <span class="badge">Private → Public publish</span>
+    </div>
+
+    <!-- The APK file is published here by the GitHub Action from FamilyApp143-master -->
+    <a class="btn" href="FamilyApp143-latest.apk" download>
+      <span class="icon">📱</span>
+      <span>Download latest APK</span>
     </a>
 
-    <div class="tag">latest</div>
-
-    <p class="note">
-      You must have permission to access the FamilyApp143 repository on GitHub
-      to download this APK. The link always points to the most recent build.
+    <p class="hint">
+      Open this page on your Android phone and tap the button above to download.
+      You may need to allow installs from your browser when you open the APK.
     </p>
-  </div>
+
+    <p class="footer">
+      The APK file is automatically updated whenever a new build is pushed in
+      the private <strong>FamilyApp143-master</strong> repository.
+    </p>
+  </main>
 </body>
 </html>
